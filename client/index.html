@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Client</title>
+        <script src="./main.js"></script>
+        <style>
+            .seccion{display:none;}
+            .activa{display:block;}
+        </style>
+    </head>
+    <body>
+        <div id="primeraPlana" class="seccion activa">
+            <form id="login">
+                <div>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Username">
+                </div>
+                <div>    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password">
+                </div>
+                
+                <div>
+                    <input type="button" onclick="login()" value="Login"></button>
+                </div>
+            </form>
+        </div>
+
+        <div id="paginaInicio" class="seccion">
+            <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/cb1c3c36-770d-4f21-88e6-d5d7b0f5cf70"></iframe>
+        </div>
+    </body>
+</html>
