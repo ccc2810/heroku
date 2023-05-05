@@ -4,7 +4,7 @@ const {WebhookClient} = require('dialogflow-fulfillment');
 
 const router = express.Router();
 
-router.post ('/webhook', function (req, res) {
+router.post ('/', function (req, res) {
 
     const agent = new WebhookClient({ request: req, response: res });
     console.log('Dialogflow Request headers: ' + JSON.stringify(req.headers));
