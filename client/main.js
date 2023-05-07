@@ -15,6 +15,7 @@ function login() {
     let dataJSON = JSON.stringify(data);
 
     fetch("https://cvd-prediction.herokuapp.com/api/v1/workouts/login", {
+    //fetch("http://localhost:8080/api/v1/workouts/login", {
         method: "POST",
         headers: {'Accept': 'application/json',
         'Content-Type': 'application/json'},
