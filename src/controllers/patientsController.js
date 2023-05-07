@@ -1,8 +1,8 @@
 const { response } = require("express");
-const workoutService = require("../services/workoutService");
+const patientsService = require("../services/patientsService");
 
 const getAllWorkouts = (req, res) => {
-    const allWorkouts = workoutService.getAllWorkouts();
+    const allWorkouts = patientsService.getAllWorkouts();
     res.send({status: "OK", data: allWorkouts});
 };
 
@@ -11,7 +11,7 @@ const loginUser = (req, res) => {
     const user = req.body.username;
     const password = req.body.password;
     //Call the service to login the user
-    const existingUser = workoutService.loginUser(user, password);
+    const existingUser = patientsService.loginUser(user, password);
     let response = {status: "404", data: existingUser};
     if (existingUser != null) {
         response = {status: "200", data: existingUser};
@@ -19,23 +19,33 @@ const loginUser = (req, res) => {
     res.send(response);
 }
 
+const getUser = (req, res) => {
+    const idUser = req.params.patientId;
+    const user = patientsService.getUser(idUser);
+    let response = {satus: "404", data: user};
+    if (user != null){
+        response = {status: "200", data: user};
+    }
+    res.send(response);
+}
+
 const getOneWorkout = (req, res) => {
-    const workout = workoutService.getOneWorkout();
+    const workout = patientsService.getOneWorkout();
     res.send("Get an existing workout");
 };
 
 const createNewWorkout = (req, res) => {
-    const createWorkout = workoutService.createNewWorkout();
+    const createWorkout = patientsService.createNewWorkout();
     res.send("Create a new workout");
 };
 
 const updateOneWorkout = (req, res) => {
-    const updateWorkout = workoutService.updateOneWorkout();
+    const updateWorkout = patientsService.updateOneWorkout();
     res.send("Update an existing workout");
 };
 
 const deteleteOneWorkout = (req, res) => {
-    workoutService.deteleteOneWorkout();
+    patientsService.deteleteOneWorkout();
     res.send("Delete an existing workout");
 };
 
@@ -46,4 +56,5 @@ module.exports = {
     updateOneWorkout,
     deteleteOneWorkout,
     loginUser,
+    getUser
 };
